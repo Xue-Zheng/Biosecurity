@@ -6,14 +6,14 @@ DROP TABLE IF EXISTS User;
 -- Pest Controller
 CREATE TABLE PestController (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    pest_controller_id_number VARCHAR(50) NOT NULL UNIQUE,
-    address VARCHAR(255) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    phone_number VARCHAR(20) NOT NULL,
-    date_joined DATE NOT NULL,
-    status VARCHAR(50) NOT NULL -- active inactive
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    pest_controller_id_number VARCHAR(50) UNIQUE,
+    address VARCHAR(255),
+    email VARCHAR(100) UNIQUE,
+    phone_number VARCHAR(20),
+    date_joined DATE,
+    status VARCHAR(50) -- active inactive
 );
 
 -- Staff/Admin
@@ -23,39 +23,34 @@ CREATE TABLE StaffAdmin (
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
-    work_phone_number VARCHAR(20) NOT NULL,
-    hire_date DATE NOT NULL,
-    position VARCHAR(100) NOT NULL,
-    department VARCHAR(100) NOT NULL,
-    status VARCHAR(20) NOT NULL -- active inactive
+    work_phone_number VARCHAR(20),
+    hire_date DATE,
+    position VARCHAR(100),
+    department VARCHAR(100),
+    status VARCHAR(20) -- active inactive
 );
 
 -- Animal Pest Guide
 CREATE TABLE AnimalPest (
-    animal_id INT AUTO_INCREMENT PRIMARY KEY,
-    description TEXT NOT NULL,
-    distribution TEXT NOT NULL,
-    size VARCHAR(100) NOT NULL,
-    droppings TEXT NOT NULL,
-    footprints TEXT NOT NULL,
-    impacts TEXT NOT NULL,
-    control_methods TEXT NOT NULL,
-    images VARCHAR(255) NOT NULL
+    animal_id VARCHAR(100) PRIMARY KEY,
+    description TEXT,
+    size VARCHAR(255),
+    distribution TEXT,
+    droppings TEXT,
+    footprints TEXT,
+    impacts TEXT,
+    control_methods TEXT,
+    images VARCHAR(255)
 );
 
 -- 用户（User），集成了PestController、Staffs和Admins
 CREATE TABLE User (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(100) NOT NULL UNIQUE,
+    username VARCHAR(100) NOT NULL,
     password VARCHAR(255) NOT NULL,
+    email VARCHAR(100) NOT NULL,
     role VARCHAR(50) NOT NULL, -- 'PestController', 'Staff', 'Admin'
-    profile_id INT NOT NULL,
+    profile_id INT,
     -- FOREIGN KEY (profile_id) REFERENCES StaffAdmin(id),
     UNIQUE(role, profile_id)
 );
-
--- 示例数据填充，假设密码已经通过散列处理
-INSERT INTO User (username, password, role, profile_id) 
-VALUES ('pestController', '123', 'PestController', 1), 
-       ('staff', '123', 'Staff', 2), 
-       ('admin', '123', 'Admin', 3);

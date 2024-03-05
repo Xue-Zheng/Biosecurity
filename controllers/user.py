@@ -48,18 +48,20 @@ def retrieve_user(user_id):
         abort(404, "User not found")
 
 # Update User
-@user_bp.route('/user/<int:user_id>', methods=['PUT'])
-def update_user(user_id):
-    username = request.json.get('username')
-    password = request.json.get('password')
-    role = request.json.get('role')
-    profile_id = request.json.get('profile_id')
+@user_bp.route('/update', methods=['POST'])
+def update_user():
+    print(request.form)
+    userid = request.form.get('userid')
+    username = request.form.get('username')
+    password = request.form.get('password')
+    role = request.form.get('role')
+    profile_id = request.form.get('profile_id')
     
     cur = conn.cursor()
     
     try:
         if password:
-            cur.execute("UPDATE User SET password = %s WHERE id = %s", (password, user_id))
+            cur.execute("UPDATE User SET password = %s WHERE id = %s", (password, userid))
         if username or role or profile_id:
             update_data = []
             update_fields = ''
@@ -72,7 +74,7 @@ def update_user(user_id):
             if profile_id:
                 update_fields += 'profile_id = %s, '
                 update_data.append(profile_id)
-            update_data.append(user_id)
+            update_data.append(userid)
 
             # Remove trailing comma
             update_fields = update_fields.rstrip(', ')
