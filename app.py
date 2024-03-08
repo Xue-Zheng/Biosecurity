@@ -110,7 +110,8 @@ def create_app(test_config=None):
                     
                 # Account doesnt exists and the form data is valid, now insert new account into accounts table
                 hashed_password = hashing.hash_value(password)
-                cursor.execute('INSERT INTO User VALUES (NULL, %s, %s, %s, %s, %s)', (username, hashed_password, email, role, lastrowid,))
+                cursor.execute('INSERT INTO User(username, password, email, role)  VALUES (%s, %s, %s, %s)', (username, hashed_password, email, role))
+                # cursor.execute('INSERT INTO User VALUES (NULL, %s, %s, %s, %s)', (username, hashed_password, role))
                 conn.commit()
                 msg = 'You have successfully registered!'
         elif request.method == 'POST':
@@ -163,7 +164,8 @@ def create_app(test_config=None):
                 {
                     'animal_id': row[0],
                     'description': row[1],
-                    'size': row[2]
+                    'size': row[2],
+                    'image':row[8]
                 } for row in rows
             ]
             data = {

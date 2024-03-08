@@ -43,7 +43,7 @@ CREATE TABLE AnimalPest (
     images VARCHAR(255)
 );
 
--- 用户（User），集成了PestController、Staffs和Admins
+
 CREATE TABLE User (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(100) NOT NULL,
