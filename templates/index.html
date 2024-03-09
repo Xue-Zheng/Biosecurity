@@ -100,7 +100,7 @@
     		<div class="card-columns">
 				{% for pest in data['pests'] %}
 					<div class="card card-pin">
-						<img class="card-img" src="{{ url_for('static', filename='img/pests/' + pest['image']) }}" alt="Card image">
+						<img class="card-img" src="{{ url_for('static', filename='img/pests/' + (pest['image'] or 'default.png')) }}" alt="Card image">
 						<div class="overlay">
 							<h2 class="card-title title">{{ pest['animal_id'] }}</h2>
 							<div class="more">
