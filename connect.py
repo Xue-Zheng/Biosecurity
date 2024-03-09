@@ -4,4 +4,5 @@ conn = mysql.connector.connect(
     user='root',
     password='Clara521521',
     database='biosecurity'
+    
 )
