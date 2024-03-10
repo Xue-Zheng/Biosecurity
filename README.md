@@ -14,11 +14,22 @@ COMP639 Studio Project – Semester 1 2024 Individual Assignment
 This is a Flask Python Web App functioning as a biosecurity guide, providing information on animal
 pests present in New Zealand.
 
-## Using the browser introduction
+## View my Web and Use introduction: Important!!!
 
-Firstly, on the Home page, there are many pest images connected to the database. Lightly tapping on these images will display their ID, and there’s an arrow below indicating that you can click to view the description inside.
+First, please log into my PythonAnywhere account for me. The account username is: Clarazheng111, and the password is also: Clarazheng111.
+
+
+After logging in, click on "Web", then click "Reload: Clarazheng111.pythonanywhere.com". Next, open "Configuration for: Clarazheng111.pythonanywhere.com". 
+
+Just wait a moment, and you will be able to access the webpage I created on the topic of Biosecurity. 
+
+And then, on the Home page, there are many pest images connected to the database. Lightly tapping on these images will display their ID, and there’s an arrow below indicating that you can click to view the description inside.
+
 Then, by pressing the ‘LogInOut’ button, you can register as a user and select a role. After registering, you can log in with your username and password into different role panels.
+
 Afterward, once logged in, your login information will be displayed in the Profile section.
+
+As well,You can hover your mouse over the images on the homepage. By clicking "more", you can see information about the pictures. 
 
 
 ## Principles
@@ -93,7 +104,8 @@ FLUSH PRIVILEGES;
 
 All the pictures from: https://www.mpi.govt.nz/biosecurity/pests-and-diseases-not-in-new-zealand/priority-list-of-potentially-invasive-pests-and-diseases/
 
-## Getting started
+https://www.mpi.govt.nz/biosecurity/exotic-pests-and-diseases-in-new-zealand/long-
+<!-- ## Getting started
 
 1. run flask
 
@@ -107,7 +119,7 @@ python3 app.py
 Navigate to localhost:5000/initdb in your web browser to initialize the data.
 ``` -->
 
-3.Register user
+<!-- 3.Register user
 
 ```bash
 Navigate to localhost:5000/register in your web browser.
@@ -117,4 +129,4 @@ Navigate to localhost:5000/register in your web browser.
 
 ```bash
 Navigate to localhost:5000/page/index or localhost:5000/
-```
+``` --> 
